@@ -2,7 +2,7 @@
 
 To check the "*arithmetic*" correctness of the credit card code we use *Luhn's formula*, which is as follows:
 
-- Assume that the 16 digits are the following (in groups of 4): (a_1 b_1 a_2 b_2), (a_3 b_3 a_4 b_4), (a_5 b_5 a_6 b_6), (a_7 b_7 a_8 b_8);
+- Assume that the 16 digits are the following (in groups of 4): ($a_1 b_1 a_2 b_2$), (a_3 b_3 a_4 b_4), (a_5 b_5 a_6 b_6), (a_7 b_7 a_8 b_8);
 
 - You multiply the digits a1, a_2, . . . , a_7, a_8 by 2 thus obtaining 2a1, 2a_2, . . . , 2a_7, 2a_8;
 
