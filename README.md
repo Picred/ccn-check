@@ -2,12 +2,12 @@
 
 To check the "*arithmetic*" correctness of the credit card code we use *Luhn's formula*, which is as follows:
 
-- Assume that the 16 digits are the following (in groups of 4): ($a_1$ b_1 a_2 b_2), (a_3 b_3 a_4 b_4), (a_5 b_5 a_6 b_6), (a_7 b_7 a_8 b_8);
+- Assume that the 16 digits are the following (in groups of 4): (a1 b1 a2 b2), (a3 b3 a4 b4), (a5 b5 a6 b6), (a7 b7 a8 b8);
 
-- You multiply the digits a1, a_2, . . . , a_7, a_8 by 2 thus obtaining 2a1, 2a_2, . . . , 2a_7, 2a_8;
+- Multiply the digits a1, a2, . . . , a7, a8 by 2 obtaining 2a1, 2a2, . . . , 2a7, 2a8;
 
-- If any of these 8 numbers should be greater than 9 (and thus is a 2-digit number) you replace it with the sum of its digits;
+- If any of these 8 numbers should be greater than 9 (and this is a 2-digit number) you replace it with the sum of its digits;
 
-- The sum of the results obtained is to be compared with the sum of the even-place cirphas.
+- The sum of the odd-place digits need to be added to the sum of the even-place cirphas.
 
-- If the two sums are equal, then the credit card code is correct, otherwise it is incorrect.
+- If the result of the operation "addition sums / 10 " has no remainder, then the iban code is correct, otherwise it is incorrect.
