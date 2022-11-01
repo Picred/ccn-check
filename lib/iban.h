@@ -8,49 +8,53 @@
 using namespace std;
 
 int* create_iban(){
-    int* ibans = new int[16]{};
-
+    int* iban = new int[16]{};
+    int i=0;
     cout << "Digit your custom IBAN: ";
     
-    for(int i=0; i<16; i++){
-        cin>>ibans[i];
-    }
+    do{
+        cin>>iban[i];
+            //exceptions
+            if(cin.fail() || (iban[i]>9 || iban[i]<0))
+                throw "Input error, restart and insert only 0-9 digits.";
+        i++;
+    } while(i<16);
 
-    return ibans;
+    return iban;
 }
 
 int* iban_generator(){
     srand(time(0));
     
-    int* ibans = new int[16]{};
+    int* iban = new int[16]{};
 
     cout << "The randomly generated IBAN is: [";
     for(int i=0; i < 16; i++){
-        ibans[i] = rand()%10;
-        cout << ibans[i] << " ";
+        iban[i] = rand()%10;
+        cout << iban[i] << " ";
     }
     cout << "]\n";
-    return ibans;
+    return iban;
 }
 
-bool verify_iban(int* ibans){
+bool verify_iban(int* iban){
     int sum_even = 0;
     int sum_odd = 0;
 
     for(int i = 0; i < 16; i += 2){
-        ibans[i]*=2;
+        iban[i]*=2;
 
-        if(ibans[i] == 18)
-            ibans[i] = 9;
+        if(iban[i] == 18)
+            iban[i] = 9;
 
-        if(ibans[i] > 9 )
-            ibans[i] = ibans[i]%9;
+        if(iban[i] > 9 )
+            iban[i] = iban[i]%9;
         
-        sum_odd+=ibans[i];
+        sum_odd+=iban[i];
     }
 
     for(int i = 1; i < 16; i += 2)
-        sum_even+=ibans[i];
+        sum_even+=iban[i];
 
     return ((sum_odd + sum_even) %10) == 0;
 }
