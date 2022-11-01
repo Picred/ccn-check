@@ -1,14 +1,23 @@
 #include "./lib/iban.h"
-#define EXIT_SUCCESS 0
+#include <limits>
 
-using namespace std;
+
 int main(){
-    //if you wanna try with a custom iban, use the following instruction
-    cout << (verify_iban(create_iban()) ? "Correct iban!" : "Incorrect iban!");
+    try{
+        cout << (verify_iban(create_iban()) ? "Correct iban!\n" : "Incorrect iban!\n");
+    } catch(const char* exception){
+        cerr << exception << endl;
+    }
+    cin.clear();
+    cin.ignore (numeric_limits<streamsize>::max() , '\n');
 
-    //if you wanna try a random iban, use the following instrucion by removing "//"
+    char answer;
+    cout << "Do you want to generate a random iban? [Y/N]: ";
     
-    // cout << verify_iban(iban_generator()) ? "Correct iban!" : "Incorrect iban!";
+    cin >> answer;
+
+    if(tolower(answer) == 'y')
+        cout << (verify_iban(iban_generator()) ? "Correct iban!" : "Incorrect iban!");
 
     return EXIT_SUCCESS;
 }
