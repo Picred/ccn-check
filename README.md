@@ -1,6 +1,6 @@
-## This is a IBAN code generator used to study the Luhn's formula
+## This is a Credit Card Number (CCN) generator used to study the Luhn's formula
 
-To check the "*arithmetic*" correctness of the credit card code we'll use *Luhn's formula*, which is as follows:
+To check the "*arithmetic*" correctness of the CCN we'll use *Luhn's formula*, which is as follows:
 
 - Assume that the 16 digits are the following (in groups of 4): (a1 b1 a2 b2), (a3 b3 a4 b4), (a5 b5 a6 b6), (a7 b7 a8 b8);
 
