@@ -1,10 +1,10 @@
-#include "./lib/iban.h"
+#include "./lib/ccn.h"
 #include <limits>
 
 
 int main(){
     try{
-        cout << (verify_iban(create_iban()) ? "Correct iban!\n" : "Incorrect iban!\n");
+        cout << (verify_ccn(create_ccn()) ? "Correct CCN!\n" : "Incorrect CCN!\n");
     } catch(const char* exception){
         cerr << exception << endl;
     }
@@ -12,12 +12,12 @@ int main(){
     cin.ignore (numeric_limits<streamsize>::max() , '\n');
 
     char answer;
-    cout << "Do you want to generate a random iban? [Y/N]: ";
+    cout << "Do you want to generate a random CCN? [Y/N]: ";
     
     cin >> answer;
 
     if(tolower(answer) == 'y')
-        cout << (verify_iban(iban_generator()) ? "Correct iban!" : "Incorrect iban!");
+        cout << (verify_ccn(ccn_generator()) ? "Correct CCN!" : "Incorrect CCN!");
 
     return EXIT_SUCCESS;
 }
