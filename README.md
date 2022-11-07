@@ -3,7 +3,11 @@
 - The verification of CCN correctness is done using [Luhn's Formula](https://en.wikipedia.org/wiki/Luhn_algorithm).
 
 # How to use
-- Download the repository and run the file "ccn.cpp" and follow the instructions from the console.
+- Download the repository on your PC:
+```bash 
+git clone https://github.com/Picred/ccn-check.git 
+```
+- Open and run `run.sh` file.
 
 # Contributions
 Feel free to:
