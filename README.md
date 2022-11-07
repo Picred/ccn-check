@@ -7,13 +7,16 @@
 ```bash 
 git clone https://github.com/Picred/ccn-check.git 
 ```
-- Open and run `run.sh` file.
+- Run `run.sh` file to run the code
 
 # Contributions
 Feel free to:
-- Open an issue
-- Report any bugs
-- Suggest changes to the code
+- Open an issue and report bugs
+- Suggest changes to the code with pull requests
 
 # Credits
 This project was developed by [Picred](https://github.com/Picred).
+
+# Future Features
+- Generation of a correct ccn by random.
+- Check of the card type (MasterCard, Visa etc..)
