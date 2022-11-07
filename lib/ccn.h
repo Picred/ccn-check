@@ -7,9 +7,9 @@
 
 using namespace std;
 
-int* create_ccn(){
-    int* ccn = new int[16]{};
-    int i=0;
+short* create_ccn(){
+    short* ccn = new short[16]{};
+    short i=0;
     cout << "Digit your custom CCN: ";
     
     do{
@@ -23,13 +23,13 @@ int* create_ccn(){
     return ccn;
 }
 
-int* ccn_generator(){
+short* ccn_generator(){
     srand(time(0));
     
-    int* ccn = new int[16]{};
+    short* ccn = new short[16]{};
 
     cout << "The randomly generated CCN is: [";
-    for(int i=0; i < 16; i++){
+    for(short i=0; i < 16; i++){
         ccn[i] = rand()%10;
         cout << ccn[i] << " ";
     }
@@ -37,11 +37,11 @@ int* ccn_generator(){
     return ccn;
 }
 
-bool verify_ccn(int* ccn){
-    int sum_even = 0;
-    int sum_odd = 0;
+bool verify_ccn(short* ccn){
+    short sum_even = 0;
+    short sum_odd = 0;
 
-    for(int i = 0; i < 16; i += 2){
+    for(short i = 0; i < 16; i += 2){
         ccn[i]*=2;
 
         if(ccn[i] == 18)
@@ -53,7 +53,7 @@ bool verify_ccn(int* ccn){
         sum_odd+=ccn[i];
     }
 
-    for(int i = 1; i < 16; i += 2)
+    for(short i = 1; i < 16; i += 2)
         sum_even+=ccn[i];
 
     return ((sum_odd + sum_even) %10) == 0;
