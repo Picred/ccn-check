@@ -41,20 +41,22 @@ bool verify_ccn(short* ccn){
     short sum_even = 0;
     short sum_odd = 0;
 
-    for(short i = 0; i < 16; i += 2){
-        ccn[i]*=2;
+    for(short i = 0; i < 16; i++){
+        if (i%2==0){
+            ccn[i]*=2;
 
-        if(ccn[i] == 18)
-            ccn[i] = 9;
+            if(ccn[i] == 18)
+                ccn[i] = 9;
 
-        if(ccn[i] > 9 )
-            ccn[i] = ccn[i]%9;
-        
-        sum_odd+=ccn[i];
+            else if(ccn[i] > 9 )
+                ccn[i] = ccn[i]%9;
+            
+            sum_odd+=ccn[i];
+        }
+        else{
+            sum_even+=ccn[i];
+        }
     }
-
-    for(short i = 1; i < 16; i += 2)
-        sum_even+=ccn[i];
 
     return ((sum_odd + sum_even) %10) == 0;
 }
