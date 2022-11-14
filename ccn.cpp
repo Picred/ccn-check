@@ -4,7 +4,7 @@
 
 int main(){
     try{
-        cout << (verify_ccn(create_ccn()) ? "Correct CCN!\n" : "Incorrect CCN!\n");
+        cout << (verify_ccn(create_ccn()) ? "\nCorrect CCN!\n" : "\nIncorrect CCN!\n");
     } catch(const char* exception){
         cerr << exception << endl;
     }
@@ -17,7 +17,7 @@ int main(){
     cin >> answer;
 
     if(tolower(answer) == 'y')
-        cout << (verify_ccn(ccn_generator()) ? "Correct CCN!" : "Incorrect CCN!");
+        cout << (verify_ccn(ccn_generator()) ? "\nCorrect CCN!\n" : "\nIncorrect CCN!\n");
 
     return EXIT_SUCCESS;
 }

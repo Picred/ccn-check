@@ -4,6 +4,13 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <string>
+
+// Circuits 
+#define MASTERCARD 5
+#define VISA 4
+#define AMERICAN_EXPRESS 3
+#define DISCOVER 6
 
 using namespace std;
 
@@ -40,6 +47,26 @@ short* ccn_generator(){
 bool verify_ccn(short* ccn){
     short sum_even = 0;
     short sum_odd = 0;
+    string circuit = "";
+
+    // circuit verification
+    switch(ccn[0]){
+            case MASTERCARD:
+                circuit = "It's a Mastercard card!";
+                break;
+            case VISA:
+                circuit = "It's a Visa card!";
+                break;
+            case AMERICAN_EXPRESS:
+                circuit = "It's an American Express card!";
+                break;
+            case DISCOVER:
+                circuit = "It's a Discorver card!";
+                break;
+            default:
+                circuit = "I can't check the circuit of this card!";
+                break;
+        }
 
     for(short i = 0; i < 16; i++){
         if (i%2==0){
@@ -58,6 +85,8 @@ bool verify_ccn(short* ccn){
         }
     }
 
+    cout << circuit;
+    
     return ((sum_odd + sum_even) %10) == 0;
 }
 
