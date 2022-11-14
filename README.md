@@ -18,5 +18,4 @@ Feel free to:
 This project was developed by [Picred](https://github.com/Picred).
 
 # Future Features
-- Generation of a correct ccn by random.
-- Check of the card type (MasterCard, Visa etc..)
+- Generation of a correct ccn by random
