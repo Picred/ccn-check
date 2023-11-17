@@ -14,22 +14,30 @@
 
 using namespace std;
 
+/**
+ * Uses stdin to collect the digits of the credit card
+ * @throws String error if digits are out of range or stdin fails
+ * @returns The array containing the numbers of the credit card
+*/
 short* create_ccn(){
     short* ccn = new short[16]{};
     short i=0;
-    cout << "Digit your custom CCN: ";
+    cout << "Digit your custom CCN (\"1 2 3\"): ";
     
     do{
-        cin>>ccn[i];
+        cin >> ccn[i];
             //exceptions
             if(cin.fail() || (ccn[i]>9 || ccn[i]<0))
                 throw "Input error, restart and insert only 0-9 digits.";
         i++;
     } while(i<16);
-
     return ccn;
 }
 
+/**
+ * Uses random generator to create the digits of the credit card
+ * @returns The array containing the numbers of the credit card
+*/
 short* ccn_generator(){
     srand(time(0));
     
@@ -44,28 +52,31 @@ short* ccn_generator(){
     return ccn;
 }
 
+/**
+ * Verifies the correctness of the credit card number using Luhn's Formula
+ * @returns True if the credit card number is correct, False otherwise
+*/
 bool verify_ccn(short* ccn){
     short sum_even = 0;
     short sum_odd = 0;
     string circuit = "";
 
-    // circuit verification
     switch(ccn[0]){
-            case MASTERCARD:
-                circuit = "It's a Mastercard card!";
-                break;
-            case VISA:
-                circuit = "It's a Visa card!";
-                break;
-            case AMERICAN_EXPRESS:
-                circuit = "It's an American Express card!";
-                break;
-            case DISCOVER:
-                circuit = "It's a Discorver card!";
-                break;
-            default:
-                circuit = "I can't check the circuit of this card!";
-                break;
+        case MASTERCARD:
+            circuit = "It's a Mastercard card!";
+            break;
+        case VISA:
+            circuit = "It's a Visa card!";
+            break;
+        case AMERICAN_EXPRESS:
+            circuit = "It's an American Express card!";
+            break;
+        case DISCOVER:
+            circuit = "It's a Discorver card!";
+            break;
+        default:
+            circuit = "I can't check the circuit of this card!";
+            break;
         }
 
     for(short i = 0; i < 16; i++){
@@ -80,14 +91,11 @@ bool verify_ccn(short* ccn){
             
             sum_odd+=ccn[i];
         }
-        else{
+        else
             sum_even+=ccn[i];
-        }
     }
-
     cout << circuit;
-    
-    return ((sum_odd + sum_even) %10) == 0;
+    return ((sum_odd + sum_even) % 10) == 0;
 }
 
 #endif
